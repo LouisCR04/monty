@@ -28,7 +28,7 @@ size_t interpreter(FILE *monty_file)
  */
 size_t line_parser(FILE *monty_file, stack_t **stack)
 {
-	char **lineptr = NULL;
+	char *lineptr = NULL;
 	ssize_t line_str;
 	size_t n = 0;
 	size_t exit_stat = EXIT_SUCCESS;
