@@ -1,6 +1,7 @@
 #ifndef __MONTYC__
 #define __MONTYC__
 
+#define _GNU_SOURCE
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
