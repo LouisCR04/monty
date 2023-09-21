@@ -29,15 +29,13 @@ size_t interpreter(FILE *monty_file)
 size_t line_parser(FILE *monty_file, stack_t **stack)
 {
 	char *lineptr = NULL;
-	ssize_t line_str;
 	size_t n = 0;
 	size_t exit_stat = EXIT_SUCCESS;
 	unsigned int line_number = 0, prevTLEN;
 	short int empty;
 	void (*opcodeFX)(stack_t**, unsigned int);
 
-	line_str = getline(&lineptr, &n, monty_file);
-	while (line_str != -1)
+	while (getline(&lineptr, &n, monty_file) != -1)
 	{
 		line_number++;
 		tok = _strtok(lineptr, DELIM);

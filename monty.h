@@ -5,9 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <fcntl.h>
-#include <ctype.h>
-#include <sys/types.h>
 
 #define DELIM " \n\t\a\b"
 
