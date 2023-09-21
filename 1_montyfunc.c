@@ -34,15 +34,13 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 	size_t exit_stat = EXIT_SUCCESS;
 	unsigned int line_number = 0, prevTLEN;
 	short int empty;
-	char *l_tok;
 	void (*opcodeFX)(stack_t**, unsigned int);
 
 	line_str = getline(&lineptr, &n, monty_file);
 	while (line_str != -1)
 	{
 		line_number++;
-		l_tok = (strtok(lineptr, DELIM));
-		tok = &l_tok;
+		tok = _strtok(lineptr, DELIM);
 		if (tok == NULL)
 		{
 			empty = empty_line_checker(lineptr, DELIM);

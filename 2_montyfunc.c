@@ -118,11 +118,11 @@ char **_strtok(char *str, char *delims)
 	while (i < word_c)
 	{
 	len_s = get_wl(str, delims);
-		if (is_delim(*str, delims))
+		if (_isDelim(*str, delims))
 		{
 			str = get_nw(str, delims);
 		}
-		strings[i] = malloc(len_s + 1) * sizeof(char));
+		strings[i] = malloc((len_s + 1) * sizeof(char));
 		if (strings[i] == NULL)
 		{
 			while (i >= 0)
@@ -139,10 +139,10 @@ char **_strtok(char *str, char *delims)
 			strings[i][n] = *(str + n);
 			n++;
 		}
-		strings[i][n] = '\0'; /* set end of str */
+		strings[i][n] = '\0';
 		str = get_nw(str, delims);
 		i++;
 	}
-	strings[i] = NULL; /* last element is null for iteration */
+	strings[i] = NULL;
 	return (strings);
 }

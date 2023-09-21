@@ -51,6 +51,7 @@ void tok_free(void);
 void (*find_opcodeFX(char *opcode))(stack_t**, unsigned int);
 unsigned int tok_len(void);
 size_t liner(char **lineptr);
+char **_strtok(char *str, char *delims);
 
 /*op1codes.c*/
 void _push(stack_t **stack, unsigned int line_number);
@@ -63,5 +64,11 @@ void _swap(stack_t **stack, unsigned int line_number);
 void _add(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
+
+/*3_montyfunc.c*/
+int _isDelim(char ch, char *delims);
+int get_wl(char *str, char *delims);
+int get_wc(char *str, char *delims);
+char *get_nw(char *str, char *delims);
 
 #endif /*__MONTYC__*/
