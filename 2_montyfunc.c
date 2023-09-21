@@ -91,3 +91,58 @@ void tok_free(void)
 	}
 }
 
+/**
+ * strtok - seperates words
+ *
+ * @str: pointer to string
+ * @delims: pointer ot delimitors
+ *
+ * Return: pointers to each word
+ */
+
+char **_strtok(char *str, char *delims)
+{
+	char **strings = NULL;
+	int word_c,len_s, n, i = 0;
+
+	if (str == NULL || !*str)
+		return (NULL);
+	word_c = get_wc(str, delims);
+
+
+	if (word_c == 0)
+		return (NULL);
+	strings = malloc((word_c + 1) * sizeof(char *));
+	if (strings == NULL)
+		return (NULL);
+	while (i < word_c)
+	{
+	len_s = get_wl(str, delims);
+		if (is_delim(*str, delims))
+		{
+			str = get_nw(str, delims);
+		}
+		strings[i] = malloc(len_s + 1) * sizeof(char));
+		if (strings[i] == NULL)
+		{
+			while (i >= 0)
+			{
+				i--;
+				free(strings[i]);
+			}
+			free(strings);
+			return (NULL);
+		}
+		n = 0;
+		while (n <len_s)
+		{
+			strings[i][n] = *(str + n);
+			n++;
+		}
+		strings[i][n] = '\0'; /* set end of str */
+		str = get_nw(str, delims);
+		i++;
+	}
+	strings[i] = NULL; /* last element is null for iteration */
+	return (strings);
+}
