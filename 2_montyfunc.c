@@ -61,9 +61,9 @@ void (*find_opcodeFX(char *opcode))(stack_t**, unsigned int)
 	while (opcodeFXs[i].opcode != NULL)
 	{
 		is_opcode = strcmp(opcode, opcodeFXs[i].opcode);
-		
+
 		if (is_opcode)
-			return(opcodeFXs[i].f);
+			return (opcodeFXs[i].f);
 		i++;
 	}
 
@@ -92,7 +92,7 @@ void tok_free(void)
 }
 
 /**
- * strtok - seperates words
+ * _strtok - seperates words
  *
  * @str: pointer to string
  * @delims: pointer ot delimitors
@@ -103,7 +103,7 @@ void tok_free(void)
 char **_strtok(char *str, char *delims)
 {
 	char **strings = NULL;
-	int word_c,len_s, n, i = 0;
+	int word_c, len_s, n, i = 0;
 
 	if (str == NULL || !*str)
 		return (NULL);
@@ -112,16 +112,19 @@ char **_strtok(char *str, char *delims)
 
 	if (word_c == 0)
 		return (NULL);
+
 	strings = malloc((word_c + 1) * sizeof(char *));
 	if (strings == NULL)
 		return (NULL);
+
 	while (i < word_c)
 	{
-	len_s = get_wl(str, delims);
+		len_s = get_wl(str, delims);
 		if (_isDelim(*str, delims))
 		{
 			str = get_nw(str, delims);
 		}
+
 		strings[i] = malloc((len_s + 1) * sizeof(char));
 		if (strings[i] == NULL)
 		{
@@ -133,8 +136,9 @@ char **_strtok(char *str, char *delims)
 			free(strings);
 			return (NULL);
 		}
+
 		n = 0;
-		while (n <len_s)
+		while (n < len_s)
 		{
 			strings[i][n] = *(str + n);
 			n++;

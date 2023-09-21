@@ -72,7 +72,7 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 		if (tok_len() != prevTLEN)
 		{
 			if (tok && tok[prevTLEN])
-				exit_stat = atoi(tok[prevTLEN]);
+				exit_stat = 0;
 
 			else
 				exit_stat = EXIT_FAILURE;
@@ -87,7 +87,7 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 	free_plates(stack);
 	exit_stat = liner(&lineptr);
 
-	return(exit_stat);
+	return (exit_stat);
 }
 
 /**
@@ -122,7 +122,7 @@ short int empty_line_checker(char *lineptr, char *delim)
 
 	while (lineptr[i])
 	{
-		while(delim[j])
+		while (delim[j])
 		{
 			if (lineptr[i] == delim[j])
 				break;
@@ -150,15 +150,15 @@ int stack_maker(stack_t **stack)
 	if (plate == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		return(-1);
+		return (-1);
 	}
 
 	plate->n = 0;
-	plate->next = NULL;
 	plate->prev = NULL;
+	plate->next = NULL;
 
 	*stack = plate;
 
-	return(0);
+	return (0);
 }
 
