@@ -37,15 +37,15 @@ void _swap(stack_t **stack, unsigned int line_number)
 	}
 
 	temp = (*stack)->next->next;
-	(*stack)->next->next = tmp->next;
-	(*stack)->next->prev = tmp;
+	(*stack)->next->next = temp->next;
+	(*stack)->next->prev = temp;
 
 	if (temp->next)
 		temp->next->prev = (*stack)->next;
 
-	tmp->next = (*stack)->next;
-	tmp->prev = stack;
-	(*stack)->next = tmp;
+	temp->next = (*stack)->next;
+	temp->prev = stack;
+	(*stack)->next = temp;
 }
 
 /**
