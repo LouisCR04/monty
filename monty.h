@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <fcntl.h>
+#include <ctype.h>
 
 #define DELIM " \n\t\a\b"
 
