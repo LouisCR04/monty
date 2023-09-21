@@ -122,9 +122,9 @@ short int empty_line_checker(char *lineptr, char *delim)
 	int i = 0;
 	int j = 0;
 
-	while (lineptr[i] != NULL)
+	while (lineptr[i])
 	{
-		while(delim[j] != NULL)
+		while(delim[j])
 		{
 			if (lineptr[i] == delim[j])
 				break;

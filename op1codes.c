@@ -44,7 +44,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 		temp->next->prev = (*stack)->next;
 
 	temp->next = (*stack)->next;
-	temp->prev = stack;
+	temp->prev = *stack;
 	(*stack)->next = temp;
 }
 
@@ -119,7 +119,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	while (tok[1][i] != NULL)
+	while (tok[1][i])
 	{
 		if (tok[1][i] == '-' && i == 0)
 			continue;
