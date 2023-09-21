@@ -1,6 +1,5 @@
 #include "monty.h"
 
-
 /**
  *liner - Frees lineptr buffer malloc'd by getline
  *@lineptr: Pointer to the buffer containing the string
