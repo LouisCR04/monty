@@ -1,5 +1,6 @@
 #include "monty.h"
 
+char **tok = NULL;
 /**
  *main - Entry point
  *@argc: Argument count
