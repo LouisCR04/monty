@@ -55,6 +55,8 @@ void (*find_opcodeFX(char *opcode))(stack_t**, unsigned int)
 		{"add", _add},
 		{"nop", _nop},
 		{"sub", _sub},
+		{"mul", _mul},
+		{"div", _div},
 		{NULL, NULL}
 	};
 
@@ -150,3 +152,4 @@ char **_strtok(char *str, char *delims)
 	strings[i] = NULL;
 	return (strings);
 }
+

@@ -57,10 +57,12 @@ void _pint(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
 
-/*op1codes.c*/
+/*op2codes.c*/
 void _add(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
 
 /*3_montyfunc.c*/
 int _isDelim(char ch, char *delims);
