@@ -13,7 +13,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
 		lastTERROR();
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "mod");
 		return;
 	}
 

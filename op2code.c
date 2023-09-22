@@ -12,7 +12,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
 		lastTERROR();
-		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "add");
+		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "sub");
 		return;
 	}
 
