@@ -45,7 +45,6 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 			if (empty)
 				continue;
 			free_plates(stack);
-			fprintf(stderr, "Error: malloc failed\n");
 			return (EXIT_FAILURE);
 		}
 
