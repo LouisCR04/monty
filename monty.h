@@ -69,5 +69,6 @@ int _isDelim(char ch, char *delims);
 int get_wl(char *str, char *delims);
 int get_wc(char *str, char *delims);
 char *get_nw(char *str, char *delims);
+void lastTERROR(void);
 
 #endif /*__MONTYC__*/

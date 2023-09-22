@@ -61,8 +61,9 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 			free_plates(stack);
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 					line_number, tok[0]);
-			tok_free();
 			exit_stat = EXIT_FAILURE;
+			tok_free();
+			break;
 		}
 
 		prevTLEN = tok_len();
@@ -70,7 +71,7 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 		if (tok_len() != prevTLEN)
 		{
 			if (tok && tok[prevTLEN])
-				exit_stat = 0;
+				exit_stat = EXIT_SUCCESS;
 
 			else
 				exit_stat = EXIT_FAILURE;

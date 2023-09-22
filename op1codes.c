@@ -109,12 +109,14 @@ void _push(stack_t **stack, unsigned int line_number)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
+		lastTERROR();
 		fprintf(stderr, "Error: malloc failed\n");
 		return;
 	}
 
 	if (tok[1] == NULL)
 	{
+		lastTERROR();
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free(new);
 		return;
@@ -126,7 +128,8 @@ void _push(stack_t **stack, unsigned int line_number)
 			continue;
 		if (tok[1][i] < '0' || tok[1][i] > '9')
 		{
-			fprintf(stderr, "L%u: usage:(empty) push integer\n", line_number);
+			lastTERROR();
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free(new);
 			return;
 		}

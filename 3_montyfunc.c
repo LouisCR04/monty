@@ -1,5 +1,50 @@
 #include "monty.h"
 
+
+/**
+ * is_delim - checks for delimiter
+ *
+ * @ch: character in stream
+ *
+ * @delims: Pointer to null terminated array of delimitors
+ *
+ *Return: 1 (success) 0 (failure)
+ */
+void lastTERROR(void)
+{
+	int i = 0;
+	int len = 0;
+	char str[] = "EXIT_FAILURE";
+	char **new = NULL;
+
+	len = tok_len();
+	new = malloc(sizeof(char *) * (len + 2));
+	if (tok == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		return;
+	}
+
+	while (i < len)
+	{
+		new[i] = tok[i];
+		i++;
+	}
+
+	new[i] = malloc(strlen(str) + 1);
+	if (new[i] == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		return;
+	}
+
+	strcpy(new[i], str);
+	new[++i] = NULL;
+
+	free(tok);
+	tok = new;
+}
+
 /**
  * is_delim - checks for delimiter
  *
