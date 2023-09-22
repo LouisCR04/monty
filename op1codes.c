@@ -116,6 +116,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (tok[1] == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free(new);
 		return;
 	}
 
@@ -126,18 +127,19 @@ void _push(stack_t **stack, unsigned int line_number)
 		if (tok[1][i] < 'o' || tok[1][i] > '9')
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			free(new);
 			return;
 		}
-
-		new->n = atoi(tok[1]);
-
-		temp = (*stack)->next;
-		new->prev = *stack;
-		new->next = temp;
-
-		if (temp != NULL)
-			temp->prev = new;
-
-		(*stack)->next = new;
 	}
+
+	new->n = atoi(tok[1]);
+
+	temp = (*stack)->next;
+	new->prev = *stack;
+	new->next = temp;
+
+	if (temp != NULL)
+		temp->prev = new;
+
+	(*stack)->next = new;
 }

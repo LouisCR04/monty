@@ -8,14 +8,14 @@
  */
 size_t liner(char **lineptr)
 {
-	if (lineptr && *lineptr == 0)
+	if (*lineptr && **lineptr == 0)
 	{
-		free(lineptr);
+		free(*lineptr);
 		fprintf(stderr, "Error: malloc failed\n");
 		return (EXIT_FAILURE);
 	}
 
-	free(lineptr);
+	free(*lineptr);
 	return (EXIT_SUCCESS);
 }
 
@@ -81,7 +81,7 @@ void tok_free(void)
 
 	if (tok != NULL)
 	{
-		while (tok[i] != NULL)
+		while (tok[i])
 		{
 			free(tok[i]);
 			i++;
