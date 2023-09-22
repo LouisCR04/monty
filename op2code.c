@@ -11,6 +11,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
+		lastTERROR();
 		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "add");
 		return;
 	}
@@ -30,9 +31,13 @@ void _add(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
+		lastTERROR();
 		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "add");
 		return;
 	}
+
+	(*stack)->next->next->n += (*stack)->next->n;
+	_pop(stack, line_number);
 }
 
 /**
@@ -58,12 +63,14 @@ void _div(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
+		lastTERROR();
 		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "div");
 		return;
 	}
 
 	if ((*stack)->next->n == 0)
 	{
+		lastTERROR();
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		return;
 	}
@@ -83,6 +90,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
+		lastTERROR();
 		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "mul");
 		return;
 	}
