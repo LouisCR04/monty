@@ -71,4 +71,7 @@ int get_wc(char *str, char *delims);
 char *get_nw(char *str, char *delims);
 void lastTERROR(void);
 
+/*4_montyfunc.c*/
+void _mod(stack_t **stack, unsigned int line_number);
+
 #endif /*__MONTYC__*/

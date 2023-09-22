@@ -1,2 +1,4 @@
-push 1
-pinte
+push 402
+push 98
+mod Holberton
+pall
