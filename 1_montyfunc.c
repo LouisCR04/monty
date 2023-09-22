@@ -70,12 +70,7 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 		opcodeFX(stack, line_number);
 		if (tok_len() != prevTLEN)
 		{
-			if (tok && tok[prevTLEN])
-				exit_stat = EXIT_SUCCESS;
-
-			else
-				exit_stat = EXIT_FAILURE;
-
+			exit_stat = EXIT_FAILURE;
 			tok_free();
 			break;
 		}

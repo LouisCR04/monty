@@ -29,7 +29,7 @@ unsigned int tok_len(void)
 {
 	unsigned int len = 0;
 
-	while (tok[len] != NULL)
+	while (tok[len])
 		len++;
 
 	return (len);
