@@ -122,10 +122,11 @@ void _push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	while (tok[1][i])
+	for (i = 0; tok[1][i]; i++)
 	{
 		if (tok[1][i] == '-' && i == 0)
 			continue;
+
 		if (tok[1][i] < '0' || tok[1][i] > '9')
 		{
 			lastTERROR();
@@ -133,8 +134,6 @@ void _push(stack_t **stack, unsigned int line_number)
 			free(new);
 			return;
 		}
-
-		i++;
 	}
 
 	new->n = atoi(tok[1]);
