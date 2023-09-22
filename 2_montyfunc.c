@@ -62,7 +62,7 @@ void (*find_opcodeFX(char *opcode))(stack_t**, unsigned int)
 	{
 		is_opcode = strcmp(opcode, opcodeFXs[i].opcode);
 
-		if (is_opcode)
+		if (is_opcode == 0)
 			return (opcodeFXs[i].f);
 		i++;
 	}

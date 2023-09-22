@@ -124,16 +124,17 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		if (tok[1][i] == '-' && i == 0)
 			continue;
-		if (tok[1][i] < 'o' || tok[1][i] > '9')
+		if (tok[1][i] < '0' || tok[1][i] > '9')
 		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage:(empty) push integer\n", line_number);
 			free(new);
 			return;
 		}
+
+		i++;
 	}
 
 	new->n = atoi(tok[1]);
-
 	temp = (*stack)->next;
 	new->prev = *stack;
 	new->next = temp;

@@ -24,7 +24,7 @@ size_t interpreter(FILE *monty_file)
  *@monty_file: Name of file being interpreted
  *@stack: Pointer to the stack
  *
- * Return:
+ * Return: 1 if failure else 0 on success
  */
 size_t line_parser(FILE *monty_file, stack_t **stack)
 {
