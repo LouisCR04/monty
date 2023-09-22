@@ -79,7 +79,7 @@ size_t line_parser(FILE *monty_file, stack_t **stack)
 	}
 
 	free_plates(stack);
-	exit_stat = liner(&lineptr);
+	liner(&lineptr);
 
 	return (exit_stat);
 }

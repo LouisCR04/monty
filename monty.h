@@ -47,7 +47,7 @@ void free_plates(stack_t **plates);
 void tok_free(void);
 void (*find_opcodeFX(char *opcode))(stack_t**, unsigned int);
 unsigned int tok_len(void);
-size_t liner(char **lineptr);
+void liner(char **lineptr);
 char **_strtok(char *str, char *delims);
 
 /*op1codes.c*/

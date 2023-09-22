@@ -6,17 +6,14 @@
  *
  * Return: length of token
  */
-size_t liner(char **lineptr)
+void liner(char **lineptr)
 {
 	if (*lineptr && **lineptr == 0)
 	{
 		free(*lineptr);
-		fprintf(stderr, "Error: malloc failed\n");
-		return (EXIT_FAILURE);
 	}
 
 	free(*lineptr);
-	return (EXIT_SUCCESS);
 }
 
 
