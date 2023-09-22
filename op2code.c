@@ -58,18 +58,18 @@ void _div(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		set_op_tok_error(short_stack_error(line_number, "div"));
+		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "div");
 		return;
 	}
 
 	if ((*stack)->next->n == 0)
 	{
-		set_op_tok_error(div_error(line_number));
+		fprintf(stderr, "L%u: division by zero\n", line_number);
 		return;
 	}
 
 	(*stack)->next->next->n /= (*stack)->next->n;
-	monty_pop(stack, line_number);
+	_pop(stack, line_number);
 }
 
 /**
@@ -83,10 +83,10 @@ void _mul(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		set_op_tok_error(short_stack_error(line_number, "mul"));
+		fprintf(stderr, "L%u: can't %s, stack too short\n", line_number, "mul");
 		return;
 	}
 
 	(*stack)->next->next->n *= (*stack)->next->n;
-	monty_pop(stack, line_number);
+	_pop(stack, line_number);
 }
